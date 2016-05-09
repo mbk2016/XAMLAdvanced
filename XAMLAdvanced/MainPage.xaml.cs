@@ -45,9 +45,6 @@ namespace XAMLAdvanced
         private void ClickedMoveRight(object sender, RoutedEventArgs e)
         {
             StoryboardMoveToRight.Begin();
-
-            int zmienna = 3;
-            string wyraz = "czesc";
         }
 
         private void ClickedMoveToCenter(object sender, RoutedEventArgs e)
@@ -57,10 +54,6 @@ namespace XAMLAdvanced
 
         private void ClickedRotate(object sender, RoutedEventArgs e)
         {
-            //StoryboardRotate.Begin();
-            //ButtonRotate.Visibility = Visibility.Collapsed;
-            //Task.Delay(200);
-            //ButtonStopRotating.Visibility = Visibility.Visible;
             if(TBButtonRotate.Text == "Obracaj")
             {
                 StoryboardRotate.Begin();
