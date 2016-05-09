@@ -1,0 +1,59 @@
+﻿<Page
+    x:Class="XAMLAdvanced.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:XAMLAdvanced"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Page.Resources>
+        
+        <Storyboard x:Name="StoryboardChangeOpacity" AutoReverse="True">
+            <DoubleAnimation Storyboard.TargetName="Kwadrat" Storyboard.TargetProperty="Opacity" From="1" To="0"/>
+        </Storyboard>
+
+        <Storyboard x:Name="StoryboardMoveToRight">
+            <DoubleAnimation Storyboard.TargetName="Position" Storyboard.TargetProperty="TranslateX" To="150"/>
+        </Storyboard>
+
+        <Storyboard x:Name="StoryboardMoveToLeft">
+            <DoubleAnimation Storyboard.TargetName="Position" Storyboard.TargetProperty="TranslateX" To="-150"/>
+        </Storyboard>
+
+        <Storyboard x:Name="StoryboardMoveToCenter">
+            <DoubleAnimation Storyboard.TargetName="Position" Storyboard.TargetProperty="TranslateX" To="0"/>
+        </Storyboard>
+
+        <Storyboard x:Name="StoryboardRotate" AutoReverse="True">
+            <DoubleAnimation Storyboard.TargetName="Position" Storyboard.TargetProperty="Rotation" From="0" By="180" RepeatBehavior="Forever"/>
+        </Storyboard>
+
+        <Storyboard x:Name="StoryboardStopRotating"> 
+            <DoubleAnimation Storyboard.TargetName="Position" Storyboard.TargetProperty="Rotation" To="180"/>
+        </Storyboard>
+
+    </Page.Resources>
+    
+    <Grid>
+        <StackPanel>
+            <Rectangle x:Name="Kwadrat" Opacity="1" Margin="100,100,100,100" Width="100" Height="100" VerticalAlignment="Top" Fill="Blue">
+                <Rectangle.RenderTransform>
+                    <CompositeTransform x:Name="Position" CenterX="50" CenterY="50" Rotation="0" TranslateX="0"/>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+
+            <ListView>                            
+                <Button x:Name="ButtonChangeOpacity" Click="ClickedChangeOpacity">Zmień przezroczystość</Button>
+                <Button x:Name="ButtonMoveLeft" Click="ClickedMoveLeft">Przesuń w lewo</Button>
+                <Button x:Name="ButtonMoveRight" Click="ClickedMoveRight">Przesuń w prawo</Button>
+                <Button x:Name="ButtonMoveToCenter" Click="ClickedMoveToCenter">Przesuń na środek</Button>
+                <Button x:Name="ButtonRotate" Click="ClickedRotate">
+                    <TextBlock x:Name="TBButtonRotate" Text="Obracaj"/>
+                </Button>
+            </ListView>
+
+        </StackPanel>
+    </Grid>
+</Page>
